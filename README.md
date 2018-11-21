@@ -1,15 +1,40 @@
-# Vendor integration service demo for Backbase DBS Capability
+# MX integration service for Backbase Transactions Capability
 
 Clone this repo to publish your connector. Few guidelines:
-1) name the repo vendor-integration-capability, so 'fiserv-integration-billpay' or 'twilio-integration-actions'
+1) name the repo mx-integration-service
 2) Ensure the title of the README.md contains 'demo', so "Vendor integration service demo for Backbase DBS Capability" or applied: "Fiserv integration service demo for Backbase DBS Bill Pay"
 3) Make sure to keep the disclaimer in this README.md and don't modify the LICENSE file (only add the list with 3rd party components)
+
+Overview
+========
+MX integration service was created using Backbase service extensions.
+
+This service extends the AddTransactionRoute, to intercept the transactions to be persisted.
+The transactions intercepted will be asynchronously enriched by MX and DBS updated. 
+
+Prerequisites
+=============
+1. Understanding Service Extension
+2. Running DBS environment 
 
 Installation
 ============
 
-Details on how to install.
+##### Environment variables
+```
+export SIG_SECRET_KEY=...
+export USERCTX_KEY=...
+export ACTIVEMQ_URL=...
+export REGISTRY_CLIENT_SERVICE_URL=...
+```
 
+##### MX Properties
+```
+backbase.mx.content-type=application/vnd.mx.deduction.v1+json
+backbase.mx.apiKey=...
+backbase.mx.url=https://int-deduction.moneydesktop.com
+backbase.mx.clientId=...
+```
 
 Quickstart
 ==========

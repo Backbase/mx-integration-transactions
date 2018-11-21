@@ -1,0 +1,13 @@
+### Integration test profile
+spring:
+  activemq:
+    in-memory: true
+    broker-url: vm://localhost?broker.advisorySupport=false&broker.persistent=false
+
+backbase.api.override-5xx-error-messages: false
+
+backbase:
+  pfm:
+    future-spending:
+      billpay-payment-support.enabled: true
+      payment-order-support.enabled: true
