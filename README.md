@@ -1,19 +1,48 @@
 # MX integration service demo for transaction categorization in DBS Transactions
-This service enables you to use MX to categorize transactions.
+MX integration service enables you to use MX to categorize transactions. It is created using Backbase service extensions.
+
+This service extends the ```AddTransactionRoute```, to intercept the transactions to be persisted. The transactions intercepted will be asynchronously enriched by MX and DBS updated. 
 
 Installation
 ============
 
-Details on how to install.
 
+### Prerequisites
+1. Understanding Service Extension
+2. A Running DBS environment 
+
+### Configure
+
+##### Environment variables
+``` java
+export SIG_SECRET_KEY=...
+export USERCTX_KEY=...
+export ACTIVEMQ_URL=...
+export REGISTRY_CLIENT_SERVICE_URL=...
+```
+
+Set the following properties in src/main/resources/application.yml:
+##### MX Properties
+``` yml
+backbase.mx.content-type=application/vnd.mx.deduction.v1+json
+backbase.mx.apiKey=...
+backbase.mx.url=https://int-deduction.moneydesktop.com
+backbase.mx.clientId=...
+```
+
+### Build
+Build all the artifacts and install it by running the following command
+```bash
+   mvn clean install
+```
 
 Quickstart
 ==========
-
-Getting started info.
-
-Next Steps
-==========
+To run the service in development mode, use:
+```bash
+   mvn clean install
+```
+Check out the postman collections in [examples](./examples/) for some sample API calls.
 
 
 
