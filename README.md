@@ -1,4 +1,4 @@
-# MX integration service demo for Backbase DBS Service
+# MX integration service demo for transaction categorization in DBS Transactions
 This service enables you to use MX to categorize transactions.
 
 Installation
