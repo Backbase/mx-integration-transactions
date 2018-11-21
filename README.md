@@ -42,7 +42,7 @@ To run the service in development mode, use:
 ```bash
    mvn clean install
 ```
-Check out the postman collections in [examples](./README_2.md) for some sample API calls.
+Check out the postman collections in [examples](./examples/) for some sample API calls.
 
 
 
