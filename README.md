@@ -1,9 +1,5 @@
-# Vendor integration service demo for Backbase DBS Capability
-
-Clone this repo to publish your connector. Few guidelines:
-1) name the repo vendor-integration-capability, so 'fiserv-integration-billpay' or 'twilio-integration-actions'
-2) Ensure the title of the README.md contains 'demo', so "Vendor integration service demo for Backbase DBS Capability" or applied: "Fiserv integration service demo for Backbase DBS Bill Pay"
-3) Make sure to keep the disclaimer in this README.md and don't modify the LICENSE file (only add the list with 3rd party components)
+# MX integration service demo for Backbase DBS Service
+This service enables you to use MX to categorize transactions.
 
 Installation
 ============
