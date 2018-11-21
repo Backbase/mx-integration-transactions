@@ -1,0 +1,489 @@
+{
+	"info": {
+		"_postman_id": "8226ec30-2f3e-150d-b837-f7e525b6188d",
+		"name": "MX",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add User MX",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.moneydesktop.mdx.v5+xml"
+					},
+					{
+						"key": "MD-API-KEY",
+						"value": "{{MX-API-Key}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.moneydesktop.mdx.v5+xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<user>\n   <id>U0000010</id>\n   <email>--email address--</email>\n   <first_name>Sara</first_name>\n   <last_name>Williams</last_name>\n   <phone>+3161234567</phone>\n   <birthdate>1983-01-23</birthdate>\n   <gender>FEMALE</gender>\n   <metadata>Additional Information</metadata>\n   <credit_score>718</credit_score>\n   <zip_code>87101</zip_code>\n</user>"
+				},
+				"url": {
+					"raw": "{{MX-LIVE}}/{{MX-Client-ID}}/users",
+					"host": [
+						"{{MX-LIVE}}"
+					],
+					"path": [
+						"{{MX-Client-ID}}",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Member MX",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.moneydesktop.mdx.v5+xml"
+					},
+					{
+						"key": "MD-API-KEY",
+						"value": "{{MX-API-Key}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.moneydesktop.mdx.v5+xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<member>\n   <id>U0000010</id>\n   <userkey>8737493HJDJDHD32423</userkey>\n</member>"
+				},
+				"url": {
+					"raw": "{{MX-LIVE}}/{{MX-Client-ID}}/users/U0000010/members",
+					"host": [
+						"{{MX-LIVE}}"
+					],
+					"path": [
+						"{{MX-Client-ID}}",
+						"users",
+						"U0000010",
+						"members"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Member MX",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.moneydesktop.mdx.v5+xml"
+					},
+					{
+						"key": "MD-API-KEY",
+						"value": "{{MX-API-Key}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.moneydesktop.mdx.v5+xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<member>\n   <id>U0000010</id>\n   <userkey>8737493HJDJDHD32423</userkey>\n</member>"
+				},
+				"url": {
+					"raw": "{{MX-LIVE}}/{{MX-Client-ID}}/users/U0000010/members/U0000010",
+					"host": [
+						"{{MX-LIVE}}"
+					],
+					"path": [
+						"{{MX-Client-ID}}",
+						"users",
+						"U0000010",
+						"members",
+						"U0000010"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Account",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.moneydesktop.mdx.v5+json"
+					},
+					{
+						"key": "MD-API-KEY",
+						"value": "{{MX-API-Key}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.moneydesktop.mdx.v5+json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"account\": {\n      \"id\": \"ACC1\",\n      \"account_number\": \"12345-678\",\n      \"available_balance\": 175.0,\n      \"balance\": 175.0,\n      \"currency_code\": \"USD\",\n      \"minimum_balance\": 5,\n      \"name\": \"Premium Savings\",\n      \"type\": \"SAVINGS\"\n   }\n}"
+				},
+				"url": {
+					"raw": "{{MX-LIVE}}/{{MX-Client-ID}}/users/U0000010/members/U0000010/accounts",
+					"host": [
+						"{{MX-LIVE}}"
+					],
+					"path": [
+						"{{MX-Client-ID}}",
+						"users",
+						"U0000010",
+						"members",
+						"U0000010",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Account Transaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.moneydesktop.mdx.v5+json"
+					},
+					{
+						"key": "MD-API-KEY",
+						"value": "{{MX-API-Key}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.moneydesktop.mdx.v5+json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"transaction\": {\n      \"id\": \"T-3QP5X0\",\n      \"status\": \"POSTED\",\n      \"type\": \"DEBIT\",\n      \"amount\": \"8.20\",\n      \"description\": \"COSTCO GAS STATION #22299\",\n      \"memo\": \"POS Purchase\",\n      \"transacted_on\": \"2013-10-28\",\n      \"posted_on\": \"2013-10-28\",\n      \"category\": \"GAS\",\n      \"latitude\": \"40.429675\",\n      \"longitude\": \"-111.891982\",\n      \"check_number\": \"9543\",\n      \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==\"\n   }\n}"
+				},
+				"url": {
+					"raw": "{{MX-LIVE}}/{{MX-Client-ID}}/users/U0000010/members/U0000010/accounts/ACC1/transactions",
+					"host": [
+						"{{MX-LIVE}}"
+					],
+					"path": [
+						"{{MX-Client-ID}}",
+						"users",
+						"U0000010",
+						"members",
+						"U0000010",
+						"accounts",
+						"ACC1",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Transaction",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.moneydesktop.mdx.v5+json"
+					},
+					{
+						"key": "MD-API-KEY",
+						"value": "{{MX-API-Key}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.moneydesktop.mdx.v5+json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"transaction\": {\n      \"id\": \"T-3QP5X0\",\n      \"status\": \"POSTED\",\n      \"type\": \"DEBIT\",\n      \"amount\": \"8.20\",\n      \"description\": \"COSTCO GAS STATION #22299\",\n      \"memo\": \"POS Purchase\",\n      \"transacted_on\": \"2013-10-28\",\n      \"posted_on\": \"2013-10-28\",\n      \"category\": \"GAS\",\n      \"latitude\": \"40.429675\",\n      \"longitude\": \"-111.891982\",\n      \"check_number\": \"9543\",\n      \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==\"\n   }\n}"
+				},
+				"url": {
+					"raw": "{{MX-LIVE}}/{{MX-Client-ID}}/users/U0000010/members/U0000010/accounts/ACC1/transactions/T-3QP5X0",
+					"host": [
+						"{{MX-LIVE}}"
+					],
+					"path": [
+						"{{MX-Client-ID}}",
+						"users",
+						"U0000010",
+						"members",
+						"U0000010",
+						"accounts",
+						"ACC1",
+						"transactions",
+						"T-3QP5X0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Account",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.moneydesktop.mdx.v5+json"
+					},
+					{
+						"key": "MD-API-KEY",
+						"value": "{{MX-API-Key}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.moneydesktop.mdx.v5+json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"account\": {\n      \"id\": \"ACC1\",\n      \"account_number\": \"12345-678\",\n      \"available_balance\": 175.0,\n      \"balance\": 175.0,\n      \"currency_code\": \"USD\",\n      \"minimum_balance\": 5,\n      \"name\": \"Premium Savings\",\n      \"type\": \"SAVINGS\"\n   }\n}"
+				},
+				"url": {
+					"raw": "{{MX-LIVE}}/{{MX-Client-ID}}/users/U0000010/members/U0000010/accounts/ACC1",
+					"host": [
+						"{{MX-LIVE}}"
+					],
+					"path": [
+						"{{MX-Client-ID}}",
+						"users",
+						"U0000010",
+						"members",
+						"U0000010",
+						"accounts",
+						"ACC1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Categories",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.moneydesktop.mdx.v5+xml"
+					},
+					{
+						"key": "MD-API-KEY",
+						"value": "{{MX-API-Key}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.moneydesktop.mdx.v5+xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<member>\n   <id>U0000010</id>\n   <userkey>8737493HJDJDHD32423</userkey>\n</member>"
+				},
+				"url": {
+					"raw": "{{MX-LIVE}}/{{MX-Client-ID}}/users/U0000010/members/U0000010",
+					"host": [
+						"{{MX-LIVE}}"
+					],
+					"path": [
+						"{{MX-Client-ID}}",
+						"users",
+						"U0000010",
+						"members",
+						"U0000010"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Account",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.moneydesktop.mdx.v5+xml"
+					},
+					{
+						"key": "MD-API-KEY",
+						"value": "{{MX-API-Key}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.moneydesktop.mdx.v5+xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<account>\n   <id>A-XZ5Y4L</id>\n   <account_number>12345-678<account_number>\n   <balance>175.0</balance>\n   <currency_code>USD</currency_code>\n   <name>Premium Savings></name>\n   <type>SAVINGS</type>\n</account>"
+				},
+				"url": {
+					"raw": "{{MX-LIVE}}/{{MX-Client-ID}}/users/U0000010/members/U0000010/accounts",
+					"host": [
+						"{{MX-LIVE}}"
+					],
+					"path": [
+						"{{MX-Client-ID}}",
+						"users",
+						"U0000010",
+						"members",
+						"U0000010",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET User MX",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.moneydesktop.sso.v3+xml"
+					},
+					{
+						"key": "MD-API-KEY",
+						"value": "{{MX-API-Key}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.moneydesktop.sso.v3+xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<member>\n   <id>U0000010</id>\n   <userkey>8737493HJDJDHD32423</userkey>\n</member>"
+				},
+				"url": {
+					"raw": "{{MX-LIVE}}/{{MX-Client-ID}}/users/U0000010",
+					"host": [
+						"{{MX-LIVE}}"
+					],
+					"path": [
+						"{{MX-Client-ID}}",
+						"users",
+						"U0000010"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Widget Urls",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "MD-API-Key",
+						"value": "{{MX-API-Key}}"
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.moneydesktop.sso.v3+json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{MX-SSO-INT}}/{{MX-Client-ID}}/users/U0000010/urls",
+					"host": [
+						"{{MX-SSO-INT}}"
+					],
+					"path": [
+						"{{MX-Client-ID}}",
+						"users",
+						"U0000010",
+						"urls"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authenticate SSO",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "MD-API-Key",
+						"value": "{{MX-API-Key}}"
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.moneydesktop.sso.v3+json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{MX-SSO-INT}}/{{MX-Client-ID}}/users/U0000010/urls",
+					"host": [
+						"{{MX-SSO-INT}}"
+					],
+					"path": [
+						"{{MX-Client-ID}}",
+						"users",
+						"U0000010",
+						"urls"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Transaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.mx.deduction.v1+json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.mx.deduction.v1+json"
+					},
+					{
+						"key": "MD-API-Key",
+						"value": "{{MX-API-Key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"transactions\": [\n        {\n            \"amount\": 11.22,\n            \"description\": \"BEER BAR 65000000764SALT LAKE C\",\n            \"id\": \"12\",\n            \"type\": \"DEBIT\"\n        },\n        {\n            \"amount\": 21.33,\n            \"description\": \"IN-N-OUT BURGER #239AMERICAN FO\",\n            \"id\": \"13\",\n            \"type\": \"DEBIT\"\n        },\n        {\n            \"amount\": 1595.33,\n            \"description\": \"ONLINE PAYMENT - THANK YOU\",\n            \"id\": \"14\",\n            \"type\": \"CREDIT\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "{{MX-URL}}/{{MX-Client-ID}}/categorize_and_describe",
+					"host": [
+						"{{MX-URL}}"
+					],
+					"path": [
+						"{{MX-Client-ID}}",
+						"categorize_and_describe"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

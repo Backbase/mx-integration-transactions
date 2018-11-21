@@ -1,48 +1,48 @@
-# MX integration service for Backbase Transactions Capability
+# MX integration service demo for transaction categorization in DBS Transactions
+MX integration service enables you to use MX to categorize transactions. It is created using Backbase service extensions.
 
-Clone this repo to publish your connector. Few guidelines:
-1) name the repo mx-integration-service
-2) Ensure the title of the README.md contains 'demo', so "Vendor integration service demo for Backbase DBS Capability" or applied: "Fiserv integration service demo for Backbase DBS Bill Pay"
-3) Make sure to keep the disclaimer in this README.md and don't modify the LICENSE file (only add the list with 3rd party components)
-
-Overview
-========
-MX integration service was created using Backbase service extensions.
-
-This service extends the AddTransactionRoute, to intercept the transactions to be persisted.
-The transactions intercepted will be asynchronously enriched by MX and DBS updated. 
-
-Prerequisites
-=============
-1. Understanding Service Extension
-2. Running DBS environment 
+This service extends the ```AddTransactionRoute```, to intercept the transactions to be persisted. The transactions intercepted will be asynchronously enriched by MX and DBS updated. 
 
 Installation
 ============
 
+
+### Prerequisites
+1. Understanding Service Extension
+2. Running a DBS environment 
+
+### Configure
+
 ##### Environment variables
-```
+``` java
 export SIG_SECRET_KEY=...
 export USERCTX_KEY=...
 export ACTIVEMQ_URL=...
 export REGISTRY_CLIENT_SERVICE_URL=...
 ```
 
+Set the following properties in src/main/resources/application.yml:
 ##### MX Properties
-```
+``` yml
 backbase.mx.content-type=application/vnd.mx.deduction.v1+json
 backbase.mx.apiKey=...
 backbase.mx.url=https://int-deduction.moneydesktop.com
 backbase.mx.clientId=...
 ```
 
+### Build
+Build all the artifacts and install it by running the following command
+```bash
+   mvn clean install
+```
+
 Quickstart
 ==========
-
-Getting started info.
-
-Next Steps
-==========
+To run the service in development mode, use:
+```bash
+   mvn clean install
+```
+Check out the postman collections in [examples](./README_2.md) for some sample API calls.
 
 
 
