@@ -9,7 +9,7 @@ Installation
 
 ### Prerequisites
 1. Understanding Service Extension
-2. Running a DBS environment 
+2. A Running DBS environment 
 
 ### Configure
 
